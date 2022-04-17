@@ -1,9 +1,31 @@
 {
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "![MIT Badge](https://img.shields.io/badge/License-MIT-green)",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
   "dependencies": {
     "inquirer": "^8.2.2"
   },
   "devDependencies": {
     "jest": "^27.5.1",
     "nodemon": "^2.0.15"
-  }
+  },
+
+  "scripts": {
+    "test": "jest --verbose test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vtori37/team-profile-generator.git"
+  },
+  "author": "Victoria Rice",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vtori37/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/vtori37/team-profile-generator#readme"
 }

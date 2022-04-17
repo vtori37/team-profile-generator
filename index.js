@@ -1,3 +1,4 @@
-// const inquirer = require('inquirer');
+const inquirer = require('inquirer');
 
 // new /* app */().initialize/*app */();
+

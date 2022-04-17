@@ -1,9 +1,13 @@
-/* In addition to Employee's properties and methods, Intern will also have:
+const Intern = require("../lib/Intern");
 
-school
+test('can get school name', () => {
+  const school = "FIU";
+  const employee = new Intern("John", "ID:45", "employee@gmail.com", "FIU");
+  expect(employee.school).toBe(school);
+});
 
-getSchool()
-
-getRole() // Overridden to return 'Intern' 
-
-*/
+test("getrole() will return Intern", () => {
+  const role = "Intern";
+  const employee = new Intern("John", "ID:45", "employee@gmail.com");
+  expect(employee.getRole()).toBe(role);
+});

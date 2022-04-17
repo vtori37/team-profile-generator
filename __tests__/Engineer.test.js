@@ -1,12 +1,13 @@
-/*
-github // GitHub username
+const Engineer = require("../lib/Engineer");
 
-getGithub()
+test('can get github account name', () => {
+  const github = "gitJohn";
+  const employee = new Engineer("John", "ID:45", "employee@gmail.com", "gitJohn");
+  expect(employee.github).toBe(github);
+});
 
-getRole() // Overridden to return 'Engineer'
-
-*/
-
-class Engineer {
-  constructor(githubUser, githubLink, )
-}
+test("getrole() will return Engineer", () => {
+  const role = "Engineer";
+  const employee = new Engineer("John", "ID:45", "employee@gmail.com");
+  expect(employee.getRole()).toBe(role);
+});
