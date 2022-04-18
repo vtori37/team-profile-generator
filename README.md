@@ -21,14 +21,14 @@ Here is a link to the live website:
 [Team Profile Generator](https://github.com/vtori37/team-profile-generator)
 
 ## Installation 
-To access the application
+To access the application, you have to install
 
 ## Usage
 This project can be used to create company profile pages.
 
 ## Test
 Here is a demonstration of the application.
-undefined
+
 
 <!-- ## Contributors -->
 
