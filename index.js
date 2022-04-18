@@ -6,7 +6,7 @@ const fs = require('fs');
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer"); 
 const Intern = require("./lib/Intern");
-const generateHTML = require("");
+// const generateHTML = require("");
 
 
 const promptUser = [
@@ -55,7 +55,7 @@ const promptUser = [
         type: 'input',
         name: "github",
         message:"What is the employee's github username?",
-        validate: gihthub => {
+        validate: github => {
           if (github) {
             return true;
           } else {
@@ -65,8 +65,9 @@ const promptUser = [
         }
       },
     ];
-    const promptIntern
-    = [
+
+
+    const promptIntern = [
       {
         type: 'input',
         name: "school",
@@ -82,27 +83,35 @@ const promptUser = [
       },
     ];
     
-    .then()
+
     
-    // TODO: Create a function to write README file
-    function writeToFile(fileName, data) {
-      return fs.writeFileSync(path.join(process.cwd(), fileName),data);
-    }
     
-    // TODO: Create a function to initialize app
-    //data is user responses
+
     function init() {
       inquirer
       .prompt(promptUser)
       .then(data => {
-        console.log('generateREADME');
-        writeToFile("README.md", generateMarkdown(data));
+        console.log('');
+        if (data.role === 'Manager') {
+          promptManager(data);
+        }
+        if (data.role === 'Engineer') {
+          promptEngineer(data);
+        }
+        if (data.role === 'Intern') {
+          promptIntern(data);
+        }
+     
+         // writeToFile("README.md", generateMarkdown(data));
       })      
-}
-
-// Function call to initialize app
-init();
-
-
+    }
+    
+    
+    //  const writeToFile(fileName, data) {
+    //    return fs.writeFileSync(path.join(process.cwd(), fileName),data);
+    //  }
+    
+    // init();
+    
 
 
