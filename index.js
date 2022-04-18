@@ -17,7 +17,7 @@ const promptUser = [
     },
     {
       type: "input",
-      name: "employeeID",
+      name: "id",
       message: "What is the employee's ID?"
     },
     {
@@ -32,9 +32,9 @@ const promptUser = [
       choices: ['Manager', 'Engineer', 'Intern'],      
     },
   ];
-    
-    const promptManager = [
-      {
+
+  const promptManager = [
+    {
         type: 'input',
         name: 'officeNumber',
         message: 'What is the office number of the manager?',
@@ -66,7 +66,7 @@ const promptUser = [
       },
     ];
 
-
+    
     const promptIntern = [
       {
         type: 'input',
@@ -90,10 +90,14 @@ const promptUser = [
     function init() {
       inquirer
       .prompt(promptUser)
+      .then(employee => {
+          const {name, id, email, role} = employee;
+        })
       .then(data => {
+    
         console.log('');
         if (data.role === 'Manager') {
-          promptManager();
+          promptManager(data);
         }
         if (data.role === 'Engineer') {
           promptEngineer(data);
@@ -115,3 +119,4 @@ const promptUser = [
     
 
 
+    
