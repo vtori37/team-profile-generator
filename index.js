@@ -23,13 +23,13 @@ const promptUser = [
     {
       type: 'input',
       name: 'email',
-      message: 'Insert your email.',
+      message: "Please insert the employee's email.",
     },
     {
       type: 'checkbox',
       name: 'role',
-      message: 'Please select the license(s) used from the following list.',
-      choices: ['Mannager', 'Engineer', 'Intern'],      
+      message: 'Please choose the role of the Employee.',
+      choices: ['Manager', 'Engineer', 'Intern'],      
     },
   ];
     
@@ -93,7 +93,7 @@ const promptUser = [
       .then(data => {
         console.log('');
         if (data.role === 'Manager') {
-          promptManager(data);
+          promptManager();
         }
         if (data.role === 'Engineer') {
           promptEngineer(data);
@@ -111,7 +111,7 @@ const promptUser = [
     //    return fs.writeFileSync(path.join(process.cwd(), fileName),data);
     //  }
     
-    // init();
+    init();
     
 
 
