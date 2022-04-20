@@ -9,8 +9,8 @@ const Intern = require("./lib/Intern");
 const { assertNewExpression } = require('@babel/types');
 // const generateHTML = require("");
 
-
-const promptUser = [
+function promptUser() {
+  return inquirer.prompt([
     {
       type: "input",
       name: "name",
@@ -30,132 +30,83 @@ const promptUser = [
       type: 'checkbox',
       name: 'role',
       message: 'Please choose the role of the Employee.',
-      choices: ['Manager', 'Engineer', 'Intern'],     
+      choices: ['Manager', 'Engineer', 'Intern'],      
     },
-    {
-      type: 'input',
-      name: 'officeNumber',
-      message: 'What is the office number of the manager?',
-      when: (choices) => choices.role === 'Manager',
-        validate: officeNumber => {
-          if (officeNumber) {
-            return true;
-          } else {
-            console.log("Please provide the manager's office number.");
-            return false;
-          }
-        }
-      },
-      {
-        type: 'input',
-        name: "github",
-        message:"What is the employee's github username?",
-        when: (choices) => choices.role === 'Engineer',
-        validate: github => {
-          if (github) {
-            return true;
-          } else {
-            console.log("Please provide a github account username.");
-            return false;
-          }
-        }
-      },
-      {
-        type: 'input',
-        name: "school",
-        message: "What is the name of the intern's school?",
-        when: (choices) => choices.role === 'Intern',
-        validate: school => {
-          if (school) {
-            return true;
-          } else {
-            console.log("Please provide the intern's school name.");
-            return false;
-          }
-        }
-      }
-    ];
+  ])
+  .then(function(data) {
+    // console.log('');
+    if (data.role[0] === 'Manager') {
+      promptManager(data);
+    }
+    if (data.role[0] === 'Engineer') {
+        promptEngineer(data);
+    }
+    if (data.role[0] === 'Intern') {
+        promptIntern(data);
+    }
+    })
+  }
 
+//give user option to create as many employee profiles as they want and then once created, 
+// an option to create the team that will be on the html
+    
 
-
-  
-    const promptManager = [
+    function promptManager (data) {
+      return inquirer.prompt([
       {
           type: 'input',
           name: 'officeNumber',
           message: 'What is the office number of the manager?',
-          validate: officeNumber => {
-            if (officeNumber) {
-              return true;
-            } else {
-              console.log("Please provide the manager's office number.");
-              return false;
-            }
-          }
+          // validate: officeNumber => {
+          //   if (officeNumber) {
+          //     return true;
+          //   } else {
+          //     console.log("Please provide the manager's office number.");
+          //     return false;
+          //   }
+          // }
         },
-      ];
+      ]);
+    }
   
-  
-      const promptEngineer = [
+      function promptEngineer (data) {
+        return inquirer.prompt([
         {
           type: 'input',
           name: "github",
           message:"What is the employee's github username?",
-          validate: github => {
-            if (github) {
-              return true;
-            } else {
-              console.log("Please provide a github account username.");
-              return false;
-            }
-          }
+          // validate: github => {
+          //   if (github) {
+          //     return true;
+          //   } else {
+          //     console.log("Please provide a github account username.");
+          //     return false;
+          //   }
+          // }
         },
-      ];
-  
+      ]);
+    }
       
-      const promptIntern = [
+      function promptIntern (data) {
+        return inquirer.prompt([
         {
           type: 'input',
           name: "school",
           message: "What is the name of the intern's school?",
-          validate: school => {
-            if (school) {
-              return true;
-            } else {
-              console.log("Please provide the intern's school name.");
-              return false;
-            }
-          }
+          // validate: school => {
+          //   if (school) {
+          //     return true;
+          //   } else {
+          //     console.log("Please provide the intern's school name.");
+          //     return false;
+          //   }
+          // }
         },
-      ];
+      ]);
+      }
     
-    
-    // function choice () {
-    // }
-    
-    function init() {
-      inquirer
-      .prompt(promptUser)
-      .then(data => {
-        if (choice.role === 'Manager') {
-          console.log('it works!');
-        }
-        //     (choice.role === 'Engineer') {
-      //     }
-      //     (choice.role === 'Intern') {
-      //     }
-         
-      })
-    };
-         // writeToFile("README.md", generateMarkdown(data));
    
-    
-    //  const writeToFile(fileName, data) {
-    //    return fs.writeFileSync(path.join(process.cwd(), fileName),data);
-    //  }
-    
-    init();
-    
+  promptUser();
 
 
     
