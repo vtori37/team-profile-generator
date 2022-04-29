@@ -47,6 +47,17 @@ function promptUser() {
     })
   }
 
+  function newEmployee () {
+    return inquirer.prompt([
+    {
+      type: "",
+      name: "",
+      message: "",
+      choices:['Yes', "No"]
+    }
+    ])
+  }
+
 //give user option to create as many employee profiles as they want and then once created, 
 // an option to create the team that will be on the html
     
